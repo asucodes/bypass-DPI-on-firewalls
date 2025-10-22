@@ -19,9 +19,9 @@ DPI catches a "Stealth" VPN when you connect to any HTTPS site, your computer se
 
 A DPI firewall like Sophos intercepts this packet and inspects it. It performs two main checks:
 
-SNI (Server Name Indication) Filtering: The ClientHello contains a field called SNI, which tells the server what website you're trying to reach (e.g., www.google.com). If the SNI is on a blocklist, the DPI drops the connection.
+SNI Filtering: The ClientHello contains a field called SNI, which tells the server what website you're trying to reach (e.g. www.google.com). If the SNI is on a blocklist, the DPI drops the connection.
 
-VLESS+WS+TLS already defeats this by using your own domain (vpn.ieeestudent.dev). The firewall sees this, doesn't recognize it as a "bad" domain, and lets it pass the first check.
+VLESS+WS+TLS already defeats this by our own domain (link redacted). The firewall sees this, doesn't recognize it as a "bad" domain, and lets it pass the first check.
 
 TLS Fingerprinting is the advanced attack. The DPI doesn't just look at the SNI. It analyzes the entire structure of the ClientHello packet:
 
