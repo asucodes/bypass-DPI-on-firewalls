@@ -18,7 +18,7 @@ Open the v2rayN main window by clicking its icon.
 In the menu at the top, click Server -> Add [VLESS] Server.
 
 A new window will open. You must fill in the details exactly as we configured them on the server:
-
+---------------------------------------------------------------------------------------------------
 Address (Host): your duck dns url goes here
 
 Port: 443
@@ -39,7 +39,6 @@ Transport Layer (Bottom Section): Select tls
 SNI:  (This will likely auto-fill when you select tls)
 
 Fingerprint: You can leave this blank or set it to chrome for better DPI resistance.
-
-Click OK to save.
+---------------------------------------------------------------------------------------------------------
 
 Step 4: Connect!
