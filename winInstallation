@@ -1,1 +1,45 @@
+Step 1: Download v2rayN
+Go to the official v2rayN GitHub page: https of://github.com/2dust/v2rayN/releases
 
+Find the latest release (at the top).
+
+In the "Assets" section, download the file named v2rayN-Core.zip. This is important—the Core version includes the Xray program that you need.
+
+Unzip this file into a permanent folder (e.g., C:\v2rayN or on your Desktop).
+
+Step 2: Run v2rayN
+Inside the folder you just unzipped, find and double-click v2rayN.exe.
+
+You will see its icon appear in your Windows System Tray (the little icons in the bottom-right corner of your screen).
+
+Step 3: Add Your Server
+Open the v2rayN main window by clicking its icon.
+
+In the menu at the top, click Server -> Add [VLESS] Server.
+
+A new window will open. You must fill in the details exactly as we configured them on the server:
+
+Address (Host): your duck dns url goes here
+
+Port: 443
+
+ID (UUID): The YOUR_UUID you generated 
+Flow: (leave this blank)
+
+Encryption: none
+
+Transport (Network): ws (or websocket)
+
+Path: /my-secret-path (or whatever secret path you chose in Step 5)
+
+Host: your ducks dns url (Yes, you enter this again here)
+
+Transport Layer (Bottom Section): Select tls
+
+SNI:  (This will likely auto-fill when you select tls)
+
+Fingerprint: You can leave this blank or set it to chrome for better DPI resistance.
+
+Click OK to save.
+
+Step 4: Connect!
