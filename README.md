@@ -1,6 +1,6 @@
 # bypass-DPI-on-firewalls
 
-bypass-DPI-on-firewalls
+
 My objective was to create a VPN service for myself could bypass Sophos Deep Packet Inspection on that restricts all UDP connections and has wifi restricitons. The primary goal was not just to get access, but to achieve an "FPS-feel" connection with minimal to zero network jitter, specifically for FPS games.
 
 Most advanced firewalls block L2TP/IPsec protocols and VPN tech based on these. Since most modern VPNs and Proxifiers depend on IPsec for minimum latency, these protocols and their servers (all popular ones) are also blocked by the firewall.
