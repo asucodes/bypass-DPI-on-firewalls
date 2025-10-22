@@ -59,4 +59,6 @@ How sing-box with REALITY Wins:
 
 You don't even use your own domain. You configure REALITY to impersonate a major, trusted website (e.g., www.microsoft.com). Your client sends a uTLS Client Hello, but it puts www.microsoft.com in the SNI field. The firewall sees this and thinks, "This is a Google Chrome browser connecting to Microsoft. This is high-priority, legitimate traffic." Your REALITY server receives this packet. It then actually forwards the handshake to the real www.microsoft.com server, gets back Microsoft's real TLS certificate, and passes it back to your client. A fully valid, authentic TLS connection is established with Microsoft. Your proxy traffic is then secretly embedded inside this legitimate-looking TLS session using a secret key.
 
+Read more about sing-box [ recommended ]: https://github.com/SagerNet/sing-box
+
 Now that we've understood how DPI works and methods used to bypass it, there is an installation guide in the same repo and another guide on network efficiency and latency issues, workarounds and result.
