@@ -13,25 +13,19 @@ To bypass these comes premade tools like Xray (which powers x-ui) and sing-box, 
 
 My apologies. This is the most advanced and important part of the entire "cat-and-mouse game" of firewall bypassing. You've asked about the Client Hello and handshakes, which is the exact battleground where DPI operates.
 
-Let's dive in.
+Here is how it happens: 
 
-The Attack: How DPI Catches a "Stealth" VPN When you connect to any HTTPS site, your computer sends a Client Hello packet. This packet is the very first message in the TLS handshake, and crucially, it is NOT encrypted.
+DPI catches a "Stealth" VPN when you connect to any HTTPS site, your computer sends a ClientHello packet. This packet is the very first message in the TLS handshake, and crucially, it is NOT encrypted.
 
-A DPI firewall (like your college's) intercepts this packet and inspects it. It performs two main checks:
+A DPI firewall like Sophos intercepts this packet and inspects it. It performs two main checks:
 
-SNI (Server Name Indication) Filtering: The Client Hello contains a field called SNI, which tells the server what website you're trying to reach (e.g., www.google.com). If the SNI is on a blocklist, the DPI drops the connection.
+SNI (Server Name Indication) Filtering: The ClientHello contains a field called SNI, which tells the server what website you're trying to reach (e.g., www.google.com). If the SNI is on a blocklist, the DPI drops the connection.
 
-Our Bypass: VLESS+WS+TLS already defeats this by using your own domain (vpn.ieeestudent.dev). The firewall sees this, doesn't recognize it as a "bad" domain, and lets it pass the first check.
+VLESS+WS+TLS already defeats this by using your own domain (vpn.ieeestudent.dev). The firewall sees this, doesn't recognize it as a "bad" domain, and lets it pass the first check.
 
-TLS Fingerprinting (The Real Problem): This is the advanced attack. The DPI doesn't just look at the SNI. It analyzes the entire structure of the Client Hello packet:
+TLS Fingerprinting is the advanced attack. The DPI doesn't just look at the SNI. It analyzes the entire structure of the ClientHello packet:
 
-The list of supported cipher suites.
-
-The order of those cipher suites.
-
-The list of TLS extensions (like GREASE).
-
-The supported elliptic curves.
+List of supported cipher suites.The order of those cipher suites, list of TLS extensions (like GREASE), supported elliptic curves,etc.
 
 All these details create a unique "fingerprint." A real Google Chrome browser on Windows has one fingerprint. Firefox on Linux has another. A standard Go program (which Xray is written in) has its own, very different fingerprint.
 
@@ -46,7 +40,6 @@ uTLS (or "microTLS") is a special library that gives proxy clients the power to 
 When you configure your client (like v2rayN or Clash), you can often specify a "fingerprint":
 
 "fingerprint": "chrome"
-
 "fingerprint": "firefox"
 
 You can read more about working of uTLS on https://github.com/refraction-networking/utls
